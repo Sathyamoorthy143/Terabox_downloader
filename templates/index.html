@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeraBox Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📁 TeraBox Downloader</h1>
+            <p>Download files from TeraBox share links easily</p>
+        </header>
+
+        <main>
+            <div class="download-form">
+                <div class="input-group">
+                    <input type="url" id="teraboxUrl" placeholder="Paste TeraBox share link here..." required>
+                    <button id="downloadBtn" onclick="startDownload()">Download File</button>
+                </div>
+                <div class="note">
+                    <p><strong>Note:</strong> This tool works with public TeraBox share links. Password-protected or premium links may not work.</p>
+                </div>
+            </div>
+
+            <div id="statusContainer" class="status-container hidden">
+                <div class="status-header">
+                    <h3>Download Status</h3>
+                    <div id="statusIndicator" class="status-indicator processing"></div>
+                </div>
+                
+                <div class="status-content">
+                    <div id="statusMessage" class="status-message">Initializing...</div>
+                    <div id="progressInfo" class="progress-info"></div>
+                    <div id="fileInfo" class="file-info"></div>
+                    
+                    <div id="actionButtons" class="action-buttons hidden">
+                        <button id="downloadFileBtn" onclick="downloadFile()" class="btn-success">Download File</button>
+                        <button id="newDownloadBtn" onclick="newDownload()" class="btn-secondary">New Download</button>
+                    </div>
+                    
+                    <div id="errorMessage" class="error-message hidden"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 TeraBox Downloader. For educational purposes only.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
