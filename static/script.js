@@ -171,7 +171,9 @@ function showNewDownloadButton() {
 
 function showError(message) {
     const errorElement = document.getElementById('errorMessage');
-    errorElement.textContent = message;
+    // Replace newlines with HTML line breaks
+    const formattedMessage = message.replace(/\n/g, '<br>');
+    errorElement.innerHTML = formattedMessage;
     errorElement.classList.remove('hidden');
 }
 
